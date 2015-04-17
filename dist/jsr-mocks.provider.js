@@ -1,13 +1,7 @@
 (function() {
     'use strict';
 
-
-    angular.module('jsrMocks', [])
-        .provider('jsrMocks', ['$window', jsrMocks])
-        .factory('jsr', ['jsrMocks', '$q', '$rootScope', jsr]);
-
-
-    var jsrMocks = function ($window) {
+    var jsrMocks = function($window) {
 
         var $mocks;
 
@@ -97,7 +91,7 @@
         };
     };
 
-    var jsr = function (jsrMocks, $q, $rootScope) {
+    var jsr = function(jsrMocks, $q, $rootScope) {
         var Visualforce = jsrMocks;
 
         console.log('testing', arguments, Visualforce);
@@ -135,5 +129,10 @@
             return deferred.promise;
         };
     };
+
+
+    angular.module('jsrMocks', [])
+        .provider('jsrMocks', ['$window', jsrMocks])
+        .factory('jsr', ['jsrMocks', '$q', '$rootScope', jsr]);
 
 }());
